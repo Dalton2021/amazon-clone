@@ -1,0 +1,87 @@
+.subtotal {
+  margin-top: 20px;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.basket {
+  border-bottom: 1px solid #000;
+}
+
+.subtotalGift {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.subtotalGift input {
+  margin-right: 5px;
+}
+
+.subtotal button {
+  background: #f0c14b;
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+}
+
+.subtotal button:hover {
+  background: #f1c963;
+}
+.subtotal button:focus {
+  background: rgb(247, 187, 37);
+}
+
+.cartTitle {
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.cartItems {
+  overflow: hidden;
+  width: 150px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.inline {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.totalPrice {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.subtotalItemPrice {
+  margin-left: 10px;
+  font-weight: 550;
+}
+
+.subtotalItemCount {
+  white-space: nowrap;
+}
+
+.totalPrice strong {
+  font-weight: 675;
+}

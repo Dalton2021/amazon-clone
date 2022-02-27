@@ -1,0 +1,97 @@
+.loginLogo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.loginContainer {
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+
+.loginContainer h1 {
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginContainer form h5 {
+  margin-bottom: 5px;
+}
+
+.loginContainer form input {
+  height: 30px;
+  border: 1px solid #111;
+  margin-bottom: 12px;
+  background-color: #fff;
+  width: 98%;
+}
+
+.loginContainer p {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.btn {
+  background: #f0c14b;
+  font-size: 15px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background: #f1d17d;
+}
+
+.btn:focus {
+  outline: 1px solid #ffd56a;
+}
+
+.btnRegister {
+  background-color: rgb(240, 236, 236);
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  height: 30px;
+  border: 1px solid;
+  border-color: darkgray;
+  color: #111;
+  border-radius: 3px;
+}
+
+.btnRegister:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.btnRegister:focus {
+  background-color: rgb(233, 231, 231);
+}
+
+.newHere {
+  color: #146eb4;
+  font-size: 12px;
+  margin-top: 30px !important;
+  margin-bottom: 5px;
+}
