@@ -17,7 +17,7 @@ const Product = ({ id, title, price, image, rating }) => {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id: id || randomId(),
+        id: randomId(),
         title: title,
         image: image,
         price: price,
@@ -27,7 +27,7 @@ const Product = ({ id, title, price, image, rating }) => {
   };
 
   return (
-    <div className={styles.product}>
+    <div key={randomId()}  className={styles.product}>
       <div className={styles.productInfo}>
         <p>{title}</p>
         <p className={styles.productPrice}>

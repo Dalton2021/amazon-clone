@@ -26,9 +26,11 @@ const Header = () => {
         <SearchIcon className={styles.searchIcon} />
       </div>
       <div className={styles.nav}>
-        <Link to={!user && "/login"} className={styles.link}>
+        <Link to="/login" className={styles.link}>
           <div onClick={handleAuthentication} className={styles.option}>
-            <span className={styles.optionLineOne}>Hello Guest </span>
+            <span className={styles.optionLineOne}>
+              {user ? `Hello ${user.displayName}` : "Hello Guest"}
+            </span>
             <span className={styles.optionLineTwo}>{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
@@ -42,9 +44,9 @@ const Header = () => {
         </div>
         <Link to="/checkout" className={styles.link}>
           <div className={styles.optionBasket}>
-            <ShoppingBasketIcon className="" />
+            <ShoppingBasketIcon className={styles.baskets} />
             <span className={`${styles.optionLineTwo} ${styles.basketCount}`}>
-              {basket?.length}
+              {basket?.length > 0 ? basket.length : ''}
             </span>
           </div>
         </Link>

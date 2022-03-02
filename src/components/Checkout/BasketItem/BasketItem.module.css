@@ -59,7 +59,6 @@
   max-width: 350px;
 }
 
-
 .checkoutProductImg {
   object-fit: contain;
   width: 180px;
@@ -77,4 +76,18 @@
 
 .checkoutProductPrice {
   margin-top: 10px;
+}
+
+.quantityPaymentList {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.quantityPaymentList span {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
 }

@@ -20,17 +20,17 @@ const Login = () => {
       .catch((error) => alert(error.message));
   };
 
-  const register = (e) => {
-    e.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => alert(error.message));
-  };
+  // const register = (e) => {
+  //   e.preventDefault();
+  //   auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((auth) => {
+  //       if (auth) {
+  //         history.push("/");
+  //       }
+  //     })
+  //     .catch((error) => alert(error.message));
+  // };
 
   return (
     <div className={styles.login}>
@@ -57,9 +57,9 @@ const Login = () => {
           </p>
         </form>
         <h5 className={styles.newHere}>New here?</h5>
-        <button onClick={register} className={styles.btnRegister}>
-          Create Amazon Account
-        </button>
+        <Link to="/createAccount">
+          <button className={styles.btnRegister}>Create Amazon Account</button>
+        </Link>
       </div>
     </div>
   );

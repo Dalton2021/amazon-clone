@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./BasketItem.module.css";
 import { useStateValue } from "../../StateProvider/StateProvider";
 
-const BasketItem = ({ id, title, rating, price, image, quantity }) => {
+const BasketItem = ({ id, title, rating, price, image, quantity, changeable }) => {
+  // eslint-disable-next-line no-unused-vars
   const [{ basket }, dispatch] = useStateValue();
 
   //Removes item from basket/data layer
@@ -17,7 +18,20 @@ const BasketItem = ({ id, title, rating, price, image, quantity }) => {
         id: id,
       },
     });
-    console.log(basket);
+  };
+
+  //Removes all of an item from the basket
+  const removeAllItem = () => {
+    dispatch({
+      type: "REMOVE_ALL_FROM_BASKET",
+      item: {
+        price: price,
+        rating: rating,
+        image: image,
+        id: id,
+        title: title,
+      },
+    });
   };
 
   const randomId = () => {
@@ -40,7 +54,7 @@ const BasketItem = ({ id, title, rating, price, image, quantity }) => {
   };
 
   return (
-    <div>
+    <div id="item">
       <div className={styles.checkoutProduct}>
         <img className={styles.checkoutProductImg} src={image} alt="product info" />
         <div className={styles.checkoutProductInfo}>
@@ -60,22 +74,30 @@ const BasketItem = ({ id, title, rating, price, image, quantity }) => {
               })}
             </strong>
           </p>
-
-          <div className={styles.btnsList}>
-            <button className={styles.removeBtn} onClick={removeItem}>
-              Remove from Basket
-            </button>
-            <button onClick={removeItem} className={styles.addSubBtn}>
-              -
-            </button>
-            <p className={styles.quantity}>{quantity}</p>
-            <button onClick={addToBasket} className={styles.addSubBtn}>
-              +
-            </button>
-          </div>
+          {changeable ? (
+            <div>
+              <div className={styles.btnsList}>
+                <button className={styles.removeBtn} onClick={removeAllItem}>
+                  Remove All
+                </button>
+                <button onClick={removeItem} className={styles.addSubBtn}>
+                  -
+                </button>
+                <p className={styles.quantity}>{quantity}</p>
+                <button onClick={addToBasket} className={styles.addSubBtn}>
+                  +
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
-      <div className={styles.basket}></div>
+      {!changeable ? (
+        <p className={styles.quantityPaymentList}>
+          Quantity: <span>{quantity}</span>
+        </p>
+      ) : null}
+      {changeable ? <div className={styles.basket}></div> : null}
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./Subtotal.module.css";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "../StateProvider/StateProvider";
 
 const Subtotal = () => {
+  const history = useHistory();
   const [{ basket }] = useStateValue();
 
   let total = 0;
@@ -17,7 +19,7 @@ const Subtotal = () => {
     return basket
       .map((basketItems) => basketItems)
       .reduce((itemCount, obj) => {
-        obj.title === titleCheck ? (itemCount += 1) : console.log(titleCheck);
+        obj.title === titleCheck ? (itemCount += 1) : console.log();
         return itemCount;
       }, 0);
   };
@@ -27,9 +29,7 @@ const Subtotal = () => {
     return basket
       .map((basketItems) => basketItems)
       .reduce((itemCount, obj) => {
-        obj.title === titleCheck
-          ? (itemCount += obj.price)
-          : console.log(`${obj.title} added, others skipped`);
+        obj.title === titleCheck ? (itemCount += obj.price) : console.log();
         return itemCount;
       }, 0);
   };
@@ -50,7 +50,7 @@ const Subtotal = () => {
                 return x.price - y.price;
               })
               .map((product) => (
-                <div className={styles.inline}>
+                <div key={product.id} className={styles.inline}>
                   <p className={styles.cartItems}>{product.title}</p>
                   <p>
                     <small className={styles.subtotalItemCount}>
@@ -81,7 +81,7 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button>Proceed to Checkout</button>
+      <button onClick={(e) => history.push("/payment")}>Proceed to Checkout</button>
     </div>
   );
 };

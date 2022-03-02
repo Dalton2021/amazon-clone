@@ -58,16 +58,23 @@
 }
 
 .optionBasket {
+  margin-right: 25px;
   display: flex;
   align-items: center;
   color: #fff;
 }
 
 .basketCount {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0px;
+  margin-top: -25px;
 }
 
 .link {
   text-decoration: none;
 }
+
+/* 
+.baskets:hover {
+  transition: 1s ease;
+  transform: rotate(20deg);
+} */

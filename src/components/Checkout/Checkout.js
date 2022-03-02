@@ -6,7 +6,6 @@ import BasketItem from "./BasketItem/BasketItem";
 
 const Checkout = () => {
   const [{ basket, user }] = useStateValue();
-  // console.log(`the big basket`, basket);
 
   // New basket to itirate over the basic basket, making sure no repeating products are renderered.
   let newBasket = basket.filter((value, index, self) => {
@@ -18,7 +17,7 @@ const Checkout = () => {
     return basket
       .map((basketItems) => basketItems)
       .reduce((itemCount, obj) => {
-        obj.title === titleCheck ? (itemCount += 1) : console.log(titleCheck);
+        obj.title === titleCheck ? (itemCount += 1) : console.log();
         return itemCount;
       }, 0);
   };
@@ -32,7 +31,7 @@ const Checkout = () => {
           alt="Ad"
         />
         <div className="">
-          <h3 className={styles.userGreeting}>{user ? `Hello, ${user.email}` : null}</h3>
+          <h3 className={styles.userGreeting}>{user ? `Hello, ${user.displayName}` : null}</h3>
           <h2 className={styles.checkoutTitle}>Your Shopping Basket</h2>
           {newBasket
             .sort(function (x, y) {
@@ -41,10 +40,12 @@ const Checkout = () => {
             .map((product) => (
               <BasketItem
                 id={product.id}
+                key={product.id}
                 title={product.title}
                 image={product.image}
                 price={product.price}
                 rating={product.rating}
+                changeable={true}
                 quantity={countTotal(product.title)}
               ></BasketItem>
             ))}

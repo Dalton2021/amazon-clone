@@ -16,6 +16,7 @@ const Home = () => {
         <img src={Banner} alt="Banner" className={styles.bannerImg} />
         <div className={styles.homeRow}>
           <Product
+            key={Math.random()}
             title="Wyze Cam Spotlight, Wyze Cam v3 Security Camera with Spotlight Kit, 1080p HD Security Camera with Two-Way Audio and Siren, IP65 Weatherproof, Compatible with Alexa and Google Assistant"
             price={49.96}
             rating={4}
@@ -24,19 +25,22 @@ const Home = () => {
         </div>
         <div className={styles.homeRow}>
           <Product
+            key={Math.random()}
             title="Baby Diapers Size 5, 120 Ct, Huggies Little Snugglers"
             price={52.99}
             rating={5}
             image={Huggies}
           />
           <Product
-            title="Harry Potter And The Sorcerers Stone"
+            key={Math.random()}
+            title="Harry Potter And The Sorcerers Stone By J.K. Rowling"
             price={10.99}
             rating={5}
             image={HarryPotterBook}
           />
           <Product
-            title="Mini 3D Printer for Kids with Removable Magnetic Build Plate 1.75mm Free Test PLA Filament DIY 3D Printers Printing Size 100x100x100mm"
+            key={Math.random()}
+            title="Mini 3D Printer for Kids with Removable Magnetic Build Plate 1.75mm Printing Size 100x100x100mm"
             price={109.99}
             rating={3}
             image={Printer}
@@ -44,12 +48,14 @@ const Home = () => {
         </div>
         <div className={styles.homeRow}>
           <Product
+            key={Math.random()}
             title="2020 Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray"
             price={1289.99}
             rating={5}
             image={Macbook}
           />
           <Product
+            key={Math.random()}
             title="Amazon Basics 14-Piece Kitchen Knife Block Set, High-Carbon Stainless Steel Blades with Pine Wood Knife Block"
             price={23.57}
             rating={4}
