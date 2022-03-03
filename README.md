@@ -11,6 +11,7 @@ This web app has been created with Stripe, so it will indeed process **_real_** 
 ## Key features of the build
 
 Backend: Firebase / Stripe / Express
+
 Frontend: React
 
 
