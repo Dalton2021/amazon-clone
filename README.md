@@ -1,11 +1,17 @@
-# To view the deployed version of the app
+# To view the deployed _Desktop_ only version of the app.
 
-https://clone-8b8f0.web.app/
+follow this link: https://clone-8b8f0.web.app/
+
+In terms of responsiveness, the focus of this web app was on functionality. A react native app will be built which will focus on the mobile verison of this clone!
 
 ## PLEASE NOTE
 
 This web app has been created with Stripe, so it will indeed process **_real_** payments. In order to test the functionality of the web app, in the payment section's card, simply add 42424... and so on. This is a dumby card which we use to test the app. 
 
+## Key features of the build
+
+Backend: Firebase / Stripe / Express
+Frontend: React
 
 
 
