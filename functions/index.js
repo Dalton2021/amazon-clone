@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
     // eslint-disable-next-line max-len
-    "sk_test_51KXuBMHuqbFtZFIxFF44k5xDza9JghNqTtNcJsABCH9PRyRhPHqL97nIR6abE4eaSO0GhmW6obvKruEjjxUGy6fb00NxVi2QIZ",
+    "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
 );
 
 // API
