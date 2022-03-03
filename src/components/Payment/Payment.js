@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import styles from "./Payment.module.css";
 import CurrencyFormat from "react-currency-format";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import { instance } from "../../axios";
+import { database } from "../../firebase";
 import { getBasketTotal } from "../Reducer/Reducer";
 import { useStateValue } from "../StateProvider/StateProvider";
 import BasketItem from "../Checkout/BasketItem/BasketItem";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const Payment = () => {
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   const history = useHistory();
   const stripe = useStripe();
@@ -40,11 +42,12 @@ const Payment = () => {
       }, 0);
   };
 
-  //allows the usage of stripe to charge a customer
   useEffect(() => {
+    // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
-      const response = await axios({
+      const response = await instance({
         method: "post",
+        // Stripe expects the total in a currencies subunits
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
@@ -53,7 +56,8 @@ const Payment = () => {
     getClientSecret();
   }, [basket]);
 
-  console.log(clientSecret);
+  console.log("THE SECRET IS >>>", clientSecret);
+  console.log("user is:", user);
 
   //processes payment card
   const handleSubmit = async (e) => {
@@ -69,9 +73,20 @@ const Payment = () => {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation
+
+        database.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent.id).set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+        
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
         history.replace("/orders");
       });
   };
@@ -131,13 +146,17 @@ const Payment = () => {
               <CardElement onChange={handleChange} />
               <div className={styles.paymentPriceContainer}>
                 <CurrencyFormat
-                  renderText={(value) => <h3>Order total: ${value}</h3>}
+                  renderText={(value) => (
+                    <h3 className={styles.paymentTotal}>
+                      Order total: <span>${value}</span>
+                    </h3>
+                  )}
                   decimalScale={2}
                   value={total}
                   displayType={"text"}
                   thousandSeparator={true}
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <button disabled={processing || disabled || succeeded} className={styles.btn}>
                   <span>{processing ? <p>Processing</p> : <p>Buy Now</p>}</span>
                 </button>
               </div>

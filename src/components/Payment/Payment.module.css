@@ -30,10 +30,58 @@
   flex: 0.2;
 }
 
-.paymentAddress, .paymentItems {
-  flex: 0.8
+.paymentAddress,
+.paymentItems {
+  flex: 0.8;
 }
 
 .paymentDetails {
   flex: 0.3;
+}
+
+.paymentTotal {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.paymentTotal span {
+  margin-left: 1rem;
+}
+/* 
+.paymentPriceContainer {
+  margin-bottom: 3rem;
+} */
+
+.btn {
+  transition: 0.5s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  background-color: #f0c14b;
+  font-size: 18px;
+}
+
+.btn:hover {
+  transition: 0s;
+  background-color: #ffd56a;
+}
+
+.btn:disabled {
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: #f0e5d6;
+}
+
+
+.paymentDetails form {
+  max-width: 400px;
+}
+
+.paymentDetails h3 {
+  padding-bottom: 20px;
 }

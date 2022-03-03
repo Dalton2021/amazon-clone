@@ -34,10 +34,12 @@ const Header = () => {
             <span className={styles.optionLineTwo}>{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
-        <div className={styles.option}>
-          <span className={styles.optionLineOne}>Returns</span>
-          <span className={styles.optionLineTwo}>& Orders</span>
-        </div>
+        <Link to="/orders" className={styles.link}>
+          <div className={styles.option}>
+            <span className={styles.optionLineOne}>Returns</span>
+            <span className={styles.optionLineTwo}>& Orders</span>
+          </div>
+        </Link>
         <div className={styles.option}>
           <span className={styles.optionLineOne}>Your</span>
           <span className={styles.optionLineTwo}>Prime</span>
@@ -46,7 +48,7 @@ const Header = () => {
           <div className={styles.optionBasket}>
             <ShoppingBasketIcon className={styles.baskets} />
             <span className={`${styles.optionLineTwo} ${styles.basketCount}`}>
-              {basket?.length > 0 ? basket.length : ''}
+              {basket?.length > 0 ? basket.length : ""}
             </span>
           </div>
         </Link>
