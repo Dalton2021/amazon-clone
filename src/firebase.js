@@ -4,12 +4,12 @@ import "firebase/compat/auth";
 
 const firebaseConfig = {
   apiKey: "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
-  authDomain: "clone-8b8f0.firebaseapp.com",
-  projectId: "clone-8b8f0",
-  storageBucket: "clone-8b8f0.appspot.com",
-  messagingSenderId: "885325421454",
-  appId: "1:885325421454:web:0aa62bacbd2f069d1722df",
-  measurementId: "G-D4JTKS898D",
+  authDomain: "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
+  projectId: "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
+  storageBucket:"THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
+  messagingSenderId:"THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
+  appId: "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
+  measurementId: "THIS_HAS_BEEN_REPLACED_FOR_PUBLIC_SAFETY_VIEW_DEPLOYED_APP_FOR_USAGE",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
